@@ -1,9 +1,9 @@
 <template>
-  <h1>Hello World!</h1>
+  <h1>Detail Hello World!</h1>
 </template>
 
 <script>
 export default {
-  name: 'AboutVue',
+  name: 'UserDetailPage',
 }
 </script>
