@@ -5,5 +5,7 @@
 <script>
 export default {
   name: 'AboutVue',
+  layout: 'blog',
+  // middleware: ['auth'],
 }
 </script>
