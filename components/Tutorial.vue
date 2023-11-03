@@ -52,18 +52,345 @@
       </a>
       <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6">
         <a :href="link">{{ message }}</a>
+        <div v-if="enabled">
+          <button :disabled="disabled">Saya tombol</button>
+        </div>
+        <!-- <ul>
+          <li v-for="company in data.result.data" :key="company.id">
+            {{ company.name }}
+          </li>
+        </ul> -->
+        {{ post }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'NuxtTutorial',
   data() {
     return {
       message: 'Hello PowerHuman',
       link: 'https://google.com/',
+      enable: true,
+      disabled: false,
+      data: {
+        meta: {
+          code: 200,
+          status: 'success',
+          message: 'Companies found',
+        },
+        data: {
+          current_page: 1,
+          data: [
+            {
+              id: 12,
+              name: 'Nama Perusahaan Attached',
+              logo: 'public/logos/CcXRj0YVN0gWA5oEg2SGqolkWjy38tUt8zZ5QddW.png',
+              deleted_at: null,
+              created_at: '2023-09-26T06:25:41.000000Z',
+              updated_at: '2023-09-26T06:25:41.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 12,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 13,
+              name: 'Nama Perusahaan Attached 3',
+              logo: 'public/logos/pgjiR1y8u9zKqBvoQT83b6VH5V6bxgVHanrL1kLS.png',
+              deleted_at: null,
+              created_at: '2023-09-26T13:38:55.000000Z',
+              updated_at: '2023-09-26T13:38:55.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 13,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 14,
+              name: 'Nama Perusahaan Attached 4',
+              logo: 'public/logos/TfYCGemCxOrxabMJ809JJHwQHniF7J4FgCg9rbAD.png',
+              deleted_at: null,
+              created_at: '2023-09-28T07:01:28.000000Z',
+              updated_at: '2023-09-28T07:01:28.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 14,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 15,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/hRhUJ33WnomIN1LqV6zD9IAUIoVKT3U3yy2MQLrQ.png',
+              deleted_at: null,
+              created_at: '2023-10-02T06:17:41.000000Z',
+              updated_at: '2023-10-02T06:17:41.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 15,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 16,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/uk5M7J6UG9jnbB36PYy4idwSrDTnDI4AM3S5N68x.png',
+              deleted_at: null,
+              created_at: '2023-10-02T22:28:30.000000Z',
+              updated_at: '2023-10-02T22:28:30.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 16,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 17,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/5sLfbw6pbl3nlfJ1D51Mq2RLQcBVa7AeGQSWGboU.png',
+              deleted_at: null,
+              created_at: '2023-10-03T21:30:41.000000Z',
+              updated_at: '2023-10-03T21:30:41.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 17,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 18,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/SXC5wIdGDZiP3oDKADMfrK2WKyHC7LgibgZiy8cI.png',
+              deleted_at: null,
+              created_at: '2023-10-05T23:54:22.000000Z',
+              updated_at: '2023-10-05T23:54:22.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 18,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 19,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/a9Z0Dx8qk0DiOh4KwoUMFxg2XQfOWrfEh91NLC7W.png',
+              deleted_at: null,
+              created_at: '2023-10-05T23:54:59.000000Z',
+              updated_at: '2023-10-05T23:54:59.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 19,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 20,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/jjxAjE2Lqf06mWql0NRDUByh7tP8tPh4i9RQUxWc.png',
+              deleted_at: null,
+              created_at: '2023-10-07T03:11:02.000000Z',
+              updated_at: '2023-10-07T03:11:02.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 20,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+            {
+              id: 21,
+              name: 'Nama Perusahaan Attached 5',
+              logo: 'public/logos/E1rGuhSz8fCdkC6iRlFUp5YjamGV7erUaF3qAJ1A.png',
+              deleted_at: null,
+              created_at: '2023-10-09T06:25:20.000000Z',
+              updated_at: '2023-10-09T06:25:20.000000Z',
+              users: [
+                {
+                  id: 54,
+                  name: 'Member Baru 3',
+                  email: 'memberbaru3@gmail.com',
+                  email_verified_at: null,
+                  two_factor_confirmed_at: null,
+                  current_team_id: null,
+                  profile_photo_path: null,
+                  created_at: '2023-09-14T08:11:25.000000Z',
+                  updated_at: '2023-09-14T08:11:25.000000Z',
+                  profile_photo_url:
+                    'https://ui-avatars.com/api/?name=M+B+3&color=7F9CF5&background=EBF4FF',
+                  pivot: {
+                    company_id: 21,
+                    user_id: 54,
+                  },
+                },
+              ],
+            },
+          ],
+          first_page_url: 'http://127.0.0.1:8000/api/company?page=1',
+          from: 1,
+          last_page: 2,
+          last_page_url: 'http://127.0.0.1:8000/api/company?page=2',
+          links: [
+            {
+              url: null,
+              label: '&laquo; Previous',
+              active: false,
+            },
+            {
+              url: 'http://127.0.0.1:8000/api/company?page=1',
+              label: '1',
+              active: true,
+            },
+            {
+              url: 'http://127.0.0.1:8000/api/company?page=2',
+              label: '2',
+              active: false,
+            },
+            {
+              url: 'http://127.0.0.1:8000/api/company?page=2',
+              label: 'Next &raquo;',
+              active: false,
+            },
+          ],
+          next_page_url: 'http://127.0.0.1:8000/api/company?page=2',
+          path: 'http://127.0.0.1:8000/api/company',
+          per_page: 10,
+          prev_page_url: null,
+          to: 10,
+          total: 13,
+        },
+      },
     }
   },
 }
