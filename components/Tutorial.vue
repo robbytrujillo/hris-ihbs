@@ -51,7 +51,7 @@
         </svg>
       </a>
       <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6">
-        <a :href="link">{{ message }}</a>
+        <a :href="link">{{ message }}, {{ name }}</a>
         <div v-if="enabled">
           <button :disabled="disabled">Saya tombol</button>
         </div>
@@ -61,6 +61,7 @@
           </li>
         </ul> -->
         {{ post }}
+        <input type="text" name="name" id="" v-model="name" />>
       </div>
     </div>
   </div>
@@ -73,7 +74,8 @@ export default {
   name: 'NuxtTutorial',
   data() {
     return {
-      message: 'Hello PowerHuman',
+      message: 'Hello',
+      name: '',
       link: 'https://google.com/',
       enable: true,
       disabled: false,
