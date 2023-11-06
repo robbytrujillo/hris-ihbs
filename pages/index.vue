@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLogo />
+    <!-- <NuxtLogo /> -->
     <Tutorial />
   </div>
   
