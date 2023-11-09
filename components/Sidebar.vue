@@ -1,4 +1,5 @@
 <template>
+  <!-- Sidebar -->
   <div
     class="hidden lg:block fixed lg:max-w-[295px] w-full overflow-y-auto h-full bg-white z-[999]"
     id="sidebarHRIS"
@@ -27,22 +28,22 @@
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Daily Use</div>
-        <NuxtLink :to="{ name: 'companies-id' }" class="nav-link">
+        <a href="index.html" class="nav-link active">
           <img src="/assets/svgs/ic-grid.svg" alt="" />
           Overview
-        </NuxtLink>
-        <NuxtLink :to="{ name: 'companies-id-employees' }" class="nav-link">
+        </a>
+        <a href="employees.html" class="nav-link">
           <img src="/assets/svgs/ic-users.svg" alt="" />
           Employees
-        </NuxtLink>
-        <NuxtLink :to="{ name: 'companies-id-teams' }" class="nav-link">
+        </a>
+        <a href="my_teams.html" class="nav-link">
           <img src="/assets/svgs/ic-briefcase.svg" alt="" />
           My Teams
-        </NuxtLink>
-        <NuxtLink :to="{ name: 'companies-id-roles' }" class="nav-link">
+        </a>
+        <a href="roles.html" class="nav-link">
           <img src="/assets/svgs/ic-flag.svg" alt="" />
           Roles
-        </NuxtLink>
+        </a>
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Others</div>
@@ -62,10 +63,10 @@
           <img src="/assets/svgs/ic-settings.svg" alt="" />
           Settings
         </a>
-        <button @click="$auth.logout()" class="nav-link">
+        <a href="#" class="nav-link">
           <img src="/assets/svgs/ic-signout.svg" alt="" />
           Logout
-        </button>
+        </a>
       </div>
     </div>
   </div>
