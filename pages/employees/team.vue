@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <a href="employees.html" id="continueBtn" class="hidden btn btn-primary">
+                    <a href="employees.html" id="continueBtn" class="btn btn-primary">
                         Continue
                     </a>
                 </div>

@@ -28,22 +28,22 @@
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Daily Use</div>
-        <a href="index.html" class="nav-link active">
+        <Nuxtlink to="index.html" class="nav-link">
           <img src="/assets/svgs/ic-grid.svg" alt="" />
           Overview
-        </a>
-        <a href="employees.html" class="nav-link">
+        </Nuxtlink>
+        <Nuxtlink to="employees.html" class="nav-link">
           <img src="/assets/svgs/ic-users.svg" alt="" />
           Employees
-        </a>
-        <a href="my_teams.html" class="nav-link">
+        </Nuxtlink>
+        <Nuxtlink to="my_teams.html" class="nav-link">
           <img src="/assets/svgs/ic-briefcase.svg" alt="" />
           My Teams
-        </a>
-        <a href="roles.html" class="nav-link">
+        </Nuxtlink>
+        <Nuxtlink to="roles.html" class="nav-link">
           <img src="/assets/svgs/ic-flag.svg" alt="" />
           Roles
-        </a>
+        </Nuxtlink>
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Others</div>
