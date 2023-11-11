@@ -75,9 +75,9 @@
                 <p class="text-grey">Teams</p>
                 <div class="text-[32px] font-bold text-dark mt-[6px]">0</div>
               </div>
-              <a href="#">
+              <NuxtLink :to="{ name: 'teams-create' }">
                 <img src="/assets/svgs/ric-plus.svg" alt="" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
           <div class="card !gap-y-10 min-h-[200px]">
@@ -86,9 +86,9 @@
                 <p class="text-grey">Projects</p>
                 <div class="text-[32px] font-bold text-dark mt-[6px]">0</div>
               </div>
-              <a href="#">
+              <NuxtLink :to="{ name: 'projects-create' }">
                 <img src="/assets/svgs/ric-plus.svg" alt="" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
