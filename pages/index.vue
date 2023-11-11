@@ -1,6 +1,5 @@
 <template>
   <div>
-   
     <!-- Main Content -->
     <div
       class="lg:pr-[70px] py-[50px] lg:ml-[320px] xl:ml-[365px] px-4 lg:pl-0"
@@ -65,9 +64,9 @@
                 <p class="text-grey">Employees</p>
                 <div class="text-[32px] font-bold text-dark mt-[6px]">0</div>
               </div>
-              <a href="employee_create.html">
+              <NuxtLink :to="{ name: 'employees-create' }">
                 <img src="/assets/svgs/ric-plus.svg" alt="" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
           <div class="card !gap-y-10 min-h-[200px]">
@@ -153,7 +152,6 @@
 </template>
 
 <script>
-
 export default {
   layout: 'dashboard',
 }
