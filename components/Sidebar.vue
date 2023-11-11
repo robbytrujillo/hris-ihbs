@@ -28,22 +28,22 @@
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Daily Use</div>
-        <Nuxtlink to="index.html" class="nav-link">
+        <NuxtLink :to="{ name: 'index' }" class="nav-link">
           <img src="/assets/svgs/ic-grid.svg" alt="" />
           Overview
-        </Nuxtlink>
-        <Nuxtlink to="employees.html" class="nav-link">
+        </NuxtLink>
+        <NuxtLink :to="{ name: 'employees' }" class="nav-link">
           <img src="/assets/svgs/ic-users.svg" alt="" />
           Employees
-        </Nuxtlink>
-        <Nuxtlink to="my_teams.html" class="nav-link">
+        </NuxtLink>
+        <NuxtLink :to="{ name: 'teams' }" class="nav-link">
           <img src="/assets/svgs/ic-briefcase.svg" alt="" />
           My Teams
-        </Nuxtlink>
-        <Nuxtlink to="roles.html" class="nav-link">
+        </NuxtLink>
+        <NuxtLink :to="{ name: 'roles' }" class="nav-link">
           <img src="/assets/svgs/ic-flag.svg" alt="" />
           Roles
-        </Nuxtlink>
+        </NuxtLink>
       </div>
       <div class="flex flex-col gap-4">
         <div class="text-sm text-grey">Others</div>
