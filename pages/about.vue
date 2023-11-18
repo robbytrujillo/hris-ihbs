@@ -6,6 +6,7 @@
 export default {
   name: 'AboutVue',
   layout: 'blog',
+  middleware: 'auth'
   // middleware: ['auth'],
 }
 </script>

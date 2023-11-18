@@ -6,7 +6,7 @@
       Manage your employees to achieve <br />
       a bigger goals for your company
     </p>
-    <form class="w-full card" @click.prevent="userRegister">
+    <form class="w-full card" @submit.prevent="userRegister">
       <div class="form-group">
         <label for="" class="text-grey">Name</label>
         <input type="text" class="input-field" v-model="register.name" />
@@ -32,6 +32,7 @@
 
 <script>
 export default {
+  auth: 'guest',
   data() {
     return {
       register: {
@@ -51,13 +52,15 @@ export default {
         try {
           let login = await this.$auth.loginWith('local', {
             data: {
-              
+              email: this.register.email,
+              password: this.register.password,
             },
           })
           console.log(login)
         } catch (err) {
           console.log(err)
         }
+
         console.log(response)
       } catch (error) {
         console.log(error)
