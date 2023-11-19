@@ -1,22 +1,34 @@
 <template>
   <section class="py-[200px] flex flex-col items-center justify-center px-4">
     <div class="text-[32px] font-semibold text-dark mb-4">Select Companies</div>
-    <form class="w-full card">
+    <div class="w-full card">
       <div class="form-group">
         <label for="" class="text-grey">Companies</label>
 
+        <p v-if="$fetchState.pending">Fetching companies...</p>
         <select
-          name=""
+          v-else
+          v-model="selectedCompany"
+          name="companies"
           id=""
           class="appearance-none input-field form-icon-chevron_down"
         >
-          <option value="" selected>Company Name</option>
+          <option
+            :value="company.id"
+            v-for="company in companies.data.result.data"
+          >
+            {{ company.name }}
+          </option>
         </select>
       </div>
-      <a href="/companies/1" class="w-full btn btn-primary mt-[14x]"
-        >Continue</a
+      <button
+        @click="openCompany()"
+        type="button"
+        class="w-full btn btn-primary mt-[14x]"
       >
-    </form>
+        Continue
+      </button>
+    </div>
   </section>
 </template>
 
@@ -26,11 +38,21 @@ export default {
   data() {
     return {
       companies: [],
+      selectedCompany: '',
     }
   },
   async fetch() {
-    this.companies = await this.$axios.get('/company'
-    )
-  }
+    this.companies = await this.$axios.get('/company?limit=100')
+  },
+  methods: {
+    openCompany() {
+      this.$router.push({
+        name: 'companies-id',
+        params: {
+          id: this.selectedCompany,
+        },
+      })
+    },
+  },
 }
 </script>
