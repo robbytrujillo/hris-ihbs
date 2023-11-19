@@ -1,4 +1,4 @@
-# STORE
+# PowerHuman Front End Web App
 
 **This directory is not required, you can delete it if you don't want to use it.**
 
