@@ -23,5 +23,14 @@
 <script>
 export default {
   middleware: 'auth',
+  data() {
+    return {
+      companies: [],
+    }
+  },
+  async fetch() {
+    this.companies = await this.$axios.get('/company'
+    )
+  }
 }
 </script>
