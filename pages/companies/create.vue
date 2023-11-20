@@ -1,14 +1,19 @@
 <template>
   <section class="py-[200px] flex flex-col items-center justify-center px-4">
-    <div class="text-[32px] font-semibold text-dark mb-4">Select Companies</div>
-    <form class="w-full card" @submit.prevent="userRegister">
+    <div class="text-[32px] font-semibold text-dark mb-4">Create Companies</div>
+    <form class="w-full card" @submit.prevent="createCompany">
       <div class="form-group">
         <label for="" class="text-grey">Name</label>
-        <input type="text" class="input-field" v-model="company.name" />
+        <input
+          type="text"
+          class="input-field"
+          name="name"
+          v-model="company.name"
+        />
       </div>
 
       <button type="submit" class="w-full btn btn-primary mt-[14px]">
-        Continue
+        Save
       </button>
     </form>
   </section>
@@ -24,17 +29,21 @@ export default {
       },
     }
   },
-  async fetch() {
-    this.companies = await this.$axios.get('/company?limit=100')
-  },
+
   methods: {
-    openCompany() {
-      this.$router.push({
-        name: 'companies-id',
-        params: {
-          id: this.selectedCompany,
-        },
-      })
+    async createCompany() {
+      try {
+        this.$axios.post('/company', this.company).then((response) => {
+          this.$router.push({
+            name: 'companies-id',
+            params: {
+              id: response.data.result.id,
+            },
+          })
+        })
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 }

@@ -1,3 +1,4 @@
+d
 <template>
   <section class="py-[200px] flex flex-col items-center justify-center px-4">
     <div class="text-[32px] font-semibold text-dark mb-4">Select Companies</div>
@@ -28,6 +29,15 @@
       >
         Continue
       </button>
+      <div class="text-center">or</div>
+      <NuxtLink
+        :to="{ name: 'companies-create' }"
+        @click="createCompany()"
+        type="button"
+        class="w-full border btn btn-white"
+      >
+        Create New Company
+      </NuxtLink>
     </div>
   </section>
 </template>
