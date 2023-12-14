@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'powerhuman-frontend',
+    title: 'hris',
     htmlAttrs: {
       lang: 'en',
     },

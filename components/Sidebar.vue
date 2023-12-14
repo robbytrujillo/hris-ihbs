@@ -7,7 +7,8 @@
     <div class="px-6 py-[50px] gap-y-[50px] flex flex-col">
       <div class="flex items-center justify-between">
         <a href="#" class="flex justify-center">
-          <img src="/assets/svgs/logo-type.svg" alt="" />
+          <!-- <img src="/assets/svgs/logo-type.svg" alt="" /> -->
+          <img src="/assets/images/ihbslogonew.png" alt="" />
         </a>
         <a href="#" id="toggleCloseSidebar" class="lg:hidden">
           <svg

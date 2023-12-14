@@ -1,4 +1,4 @@
-# powerhuman-frontend
+# hris-ihbs
 
 ## Build Setup
 
