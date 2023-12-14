@@ -2,7 +2,9 @@
   <div>
     <section class="py-[50px] flex flex-col items-center justify-center px-4">
       <img src="/assets/images/ihbslogonew.png" alt="" />
-      <div class="text-[32px] font-bold text-dark mt-[70px]">HRIS Sign In</div>
+      <div class="text-[32px] font-bold text-dark mt-[70px]">
+        HRIS - Sign In
+      </div>
       <p class="mt-4 text-base leading-7 text-center mb-[50px] text-grey">
         <!-- Manage your employees to achieve <br />
         a bigger goals for your company -->
